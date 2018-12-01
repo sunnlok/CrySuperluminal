@@ -2,6 +2,8 @@ if(NOT DEFINED USE_SUPERLUMINAL)
     option(USE_SUPERLUMINAL "Enable Superluminal" ON)
 endif()
 
+
+set(SUPERLUMINAL_INCLUDE "${CRYENGINE_DIR}/Code/CryPlugins/CrySuperluminal/Include/Empty")
 if(USE_SUPERLUMINAL)
 if(MSVC_VERSION EQUAL 1900)
     if(WIN64)
@@ -23,8 +25,6 @@ endif()
 
 target_include_directories( ${THIS_PROJECT} PRIVATE ${SUPERLUMINAL_INCLUDE})
 target_link_libraries(${THIS_PROJECT} PRIVATE ${SUPERLUMINAL})
-else()
-    target_include_directories( ${THIS_PROJECT} PRIVATE "${CRYENGINE_DIR}/Code/CryPlugins/CrySuperluminal/Include/Empty")
 endif()
 
 
