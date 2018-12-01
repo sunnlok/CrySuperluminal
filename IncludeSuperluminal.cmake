@@ -22,9 +22,10 @@ elseif(MSVC_VERSION GREATER 1900)
         find_library(SUPERLUMINAL PerformanceAPI PATHS ${SUPERLUMINAL_INCLUDE} )
     endif()
 endif()
-
-target_include_directories( ${THIS_PROJECT} PRIVATE ${SUPERLUMINAL_INCLUDE})
+Message("Linking superluminal ${SUPERLUMINAL}")
 target_link_libraries(${THIS_PROJECT} PRIVATE ${SUPERLUMINAL})
 endif()
 
+Message("Including superluminal header from ${SUPERLUMINAL_INCLUDE}")
+target_include_directories( ${THIS_PROJECT} PRIVATE ${SUPERLUMINAL_INCLUDE})
 
